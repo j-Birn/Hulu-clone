@@ -1,3 +1,4 @@
+import axios from "axios";
 import Head from "next/head";
 import Header from "../components/Header";
 import Nav from "../components/Nav";
@@ -16,23 +17,21 @@ export default function Home({ results }) {
 
       <Nav />
 
-      <Results results={results} />
+      {/* <Results results={results} /> */}
     </div>
   );
 }
 
-export async function getServerSideProps(context) {
-  const genre = context.query.genre;
+// export async function getServerSideProps(context) {
+//   const genre = context.query.genre;
 
-  const request = await fetch(
-    `https://api.themoviedb.org/3${
-      requests[genre]?.url || requests.fetchTrending.url
-    }`
-  ).then((res) => res.json());
+//   const request = await axios.get(
+//     `https://api.themoviedb.org/3${requests.fetchTrending.url}`
+//   );
 
-  return {
-    props: {
-      results: request.results,
-    },
-  };
-}
+//   return {
+//     props: {
+//       results: request.data,
+//     },
+//   };
+// }
