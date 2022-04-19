@@ -17,21 +17,21 @@ export default function Home({ results }) {
 
       <Nav />
 
-      {/* <Results results={results} /> */}
+      <Results results={results} />
     </div>
   );
 }
 
-// export async function getServerSideProps(context) {
-//   const genre = context.query.genre;
+export async function getServerSideProps(context) {
+  const genre = context.query.genre;
 
-//   const request = await axios.get(
-//     `https://api.themoviedb.org/3${requests.fetchTrending.url}`
-//   );
+  const request = await axios.get(
+    `https://api.themoviedb.org/3${requests.fetchTrending.url}`
+  );
 
-//   return {
-//     props: {
-//       results: request.data,
-//     },
-//   };
-// }
+  return {
+    props: {
+      results: request.data,
+    },
+  };
+}
